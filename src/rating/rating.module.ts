@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { UserService } from "./user.service";
-import { UserController } from "./user.controller";
-import { User } from "./entities/user.entity";
 import { ClientsModule, Transport } from "@nestjs/microservices";
+import { Rating } from "./entities/rating.entity";
+import { RatingController } from "./rating.controller";
+import { RatingService } from "./rating.service";
 
 @Module({
   imports: [
@@ -24,10 +24,10 @@ import { ClientsModule, Transport } from "@nestjs/microservices";
         },
       },
     ]),
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Rating]),
   ],
-  controllers: [UserController],
-  providers: [UserService],
-  exports: [UserService, TypeOrmModule],
+  controllers: [RatingController],
+  providers: [RatingService],
+  exports: [RatingService, TypeOrmModule],
 })
-export class UserModule {}
+export class RatingModule {}

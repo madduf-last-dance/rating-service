@@ -1,11 +1,9 @@
 import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { UserModule } from "./user/user.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ConfigModule } from "@nestjs/config";
-import { AuthModule } from "./auth/auth.module";
 import { SeedModule } from "./seed/seed.module";
+import { RatingModule } from "./rating/rating.module";
 
 @Module({
   imports: [
@@ -19,8 +17,7 @@ import { SeedModule } from "./seed/seed.module";
       autoLoadEntities: true,
       synchronize: true,
     }),
-    UserModule,
-    AuthModule,
+    RatingModule,
     SeedModule,
   ],
   controllers: [AppController],
