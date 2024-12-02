@@ -3,10 +3,16 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { SeedModule } from "./seed/seed.module";
+import { ConfigModule } from "@nestjs/config";
 import { RatingModule } from "./rating/rating.module";
 
 @Module({
   imports: [
+    ConfigModule.forRoot(
+      {
+        envFilePath: ['.env.dev']
+      }
+    ),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
