@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Rating } from "src/rating/entities/rating.entity";
+import { RatingType } from "src/rating/entities/rating-type.enum";
 
 @Injectable()
 export class SeedService {
@@ -10,31 +11,19 @@ export class SeedService {
   ) {}
 
   async seed() {
-    // const checkedUsers = await this.userRepository.find();
-    // if (checkedUsers.length > 0) {
-    //   return;
-    // }
+    const reviews = [
 
-    // const users: Partial<User>[] = [
-    //   {
-    //     username: "nikola",
-    //     password: await bcrypt.hash("123", 10),
-    //     name: "Nikola",
-    //     surname: "Petrovic",
-    //     email: "s.nino.petrovic@gmail.com",
-    //     address: "Zrenjanin",
-    //     role: Role.HOST,
-    //   },
-    //   {
-    //     username: "crazyAca",
-    //     password: await bcrypt.hash("vranje", 10),
-    //     name: "Coa",
-    //     surname: "Jovanovic",
-    //     email: "aca.faca@vranje.com",
-    //     address: "Pemina kuca",
-    //     role: Role.GUEST,
-    //   },
-    // ];
-    // await this.userRepository.save(users);
+      // Reviews for accommodation ID 1
+      { rating: 5, userId: 101, ratedEntityId: 1, ratingType: RatingType.ACCOMMODATION },
+      { rating: 4, userId: 102, ratedEntityId: 1, ratingType: RatingType.ACCOMMODATION },
+      { rating: 3, userId: 103, ratedEntityId: 1, ratingType: RatingType.ACCOMMODATION },
+  
+      // Reviews for accommodation ID 2
+      { rating: 4, userId: 104, ratedEntityId: 2, ratingType: RatingType.ACCOMMODATION },
+      { rating: 2, userId: 105, ratedEntityId: 2, ratingType: RatingType.ACCOMMODATION },
+      { rating: 5, userId: 106, ratedEntityId: 2, ratingType: RatingType.ACCOMMODATION },
+    ];
+  
+    await this.ratingRepository.save(reviews);
   }
 }

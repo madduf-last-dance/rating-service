@@ -7,14 +7,14 @@ export class Rating {
   id: number;
 
   @Column()
-  rating: number;
+  rating: number; // Number of stars 1-5
 
   @Column()
-  usedId: number;
+  userId: number;
 
   @Column()
-  ratingId: number;
+  ratedEntityId: number; // ID of host or accommodation that is beeing rated. We can determine is it a host or accommodation with help of RatingType enum.
 
   @Column()
-  ratingType: RatingType;
+  ratingType: RatingType; // Enum
 }
