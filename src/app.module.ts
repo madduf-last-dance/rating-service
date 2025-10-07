@@ -10,7 +10,7 @@ import { RatingModule } from "./rating/rating.module";
   imports: [
     ConfigModule.forRoot(
       {
-        envFilePath: ['.env.dev']
+        envFilePath: ['.env']
       }
     ),
     TypeOrmModule.forRoot({

@@ -12,6 +12,7 @@ import { RatingService } from "./rating.service";
         name: "RESERVATION_SERVICE",
         transport: Transport.TCP,
         options: {
+          host: "localhost",
           port: 1315,
         },
       },
@@ -19,7 +20,7 @@ import { RatingService } from "./rating.service";
         name: "ACCOMMODATION_SERVICE",
         transport: Transport.TCP,
         options: {
-          host: "accommodation-service",
+          host: "localhost",
           port: 1312,
         },
       },
