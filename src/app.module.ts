@@ -8,11 +8,6 @@ import { RatingModule } from "./rating/rating.module";
 
 @Module({
   imports: [
-    ConfigModule.forRoot(
-      {
-        envFilePath: ['.env.dev']
-      }
-    ),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
