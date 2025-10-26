@@ -12,7 +12,8 @@ import { RatingService } from "./rating.service";
         name: "RESERVATION_SERVICE",
         transport: Transport.TCP,
         options: {
-          host: "reservation-service.default.svc.cluster.local",
+          host: "localhost",
+          //host: "reservation-service.default.svc.cluster.local",
           port: 1315,
         },
       },
@@ -20,7 +21,8 @@ import { RatingService } from "./rating.service";
         name: "ACCOMMODATION_SERVICE",
         transport: Transport.TCP,
         options: {
-          host: "accommodation-service.default.svc.cluster.local",
+          host: "localhost",
+          //host: "accommodation-service.default.svc.cluster.local",
           port: 1312,
         },
       },
